@@ -1,0 +1,4 @@
+int32 action
+int32 tokenNumber
+---
+bool send
