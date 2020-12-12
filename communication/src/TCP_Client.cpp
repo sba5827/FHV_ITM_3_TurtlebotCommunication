@@ -4,10 +4,12 @@
 
 using namespace communication;
 
-TCP_Client::TCP_Client():port((char*)"5050"){
+TCP_Client::TCP_Client(char* ip):port((char*)"5050"){
+    this->ipAddress = (STRING)ip;
     this->constructor();
 }
-TCP_Client::TCP_Client(char* port):port(port){
+TCP_Client::TCP_Client(char* port, char* ip):port(port){
+    this->ipAddress = (STRING)ip;
     this->constructor();
 }
 TCP_Client::~TCP_Client(){
@@ -82,7 +84,7 @@ void TCP_Client::constructor(){
 
     ros::NodeHandle nh;
 
-    nh.param("ipAddress", this->ipAddress, (STRING)"192.168.2.120"); 
+    //nh.param("ipAddress", this->ipAddress, (STRING)"192.168.2.120"); 
 
     this->msg_pub = nh.advertise<SendTCP::Request>("com_recv_msg", 10);
     this->state_pub = nh.advertise<std_msgs::String>("TCP_Client_state", 10);

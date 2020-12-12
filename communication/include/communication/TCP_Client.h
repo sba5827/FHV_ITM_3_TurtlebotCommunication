@@ -52,8 +52,8 @@ namespace communication
       
 
     public:
-        TCP_Client();
-        TCP_Client(char* port);
+        TCP_Client(char* ip);
+        TCP_Client(char* port, char* ip);
         ~TCP_Client();
 
         void run(const ros::TimerEvent& e);

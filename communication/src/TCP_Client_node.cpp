@@ -7,7 +7,7 @@ int main(int argc, char **argv) {
 
     ROS_INFO("%s started.", ROS_PACKAGE_NAME);
 
-    communication::TCP_Client client;
+    communication::TCP_Client client(argv[1]);
 
     ros::spin();
     return 0;
